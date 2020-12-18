@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col text-center title"><h1>COVID RISK PREDICTION</h1></div>
+    </div>
+
+    <div class="row content">
+        <div class="col-lg-6 col-sm">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h4 class="text-center">SIGN UP</h4><br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="E-mail Address" #userEmail required>
+                    </div>
+                
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" #userPwd required>
+                    </div>
+                
+                    <!-- Calling SignIn Api from AuthService -->
+                    <div class="form-group">
+                        <input type="button" class="btn btn-primary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+                    </div>
+
+                    <div class="form-group">
+                        <span><span><h5>Or</h5></span></span>
+                    </div>
+                
+                    <!-- Calling GoogleAuth Api from AuthService -->
+                    <div class="form-group">
+                        <button type="button" class="btn btn-danger" (click)="authService.GoogleAuth()">
+                            <i class="fab fa-google-plus-g"></i>
+                                Log in with Google
+                        </button>
+                    </div>
+                </div>
+                    <div class="redirectToLogin">
+                        <h6><span>Already have an account ?<span class="redirect" routerLink="/sign-in"> Log In</span></span></h6><br>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

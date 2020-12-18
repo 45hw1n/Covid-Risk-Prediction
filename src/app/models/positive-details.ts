@@ -1,0 +1,23 @@
+export interface positiveDetails {
+    name: string ,
+    age: number,
+    mobileNo: number,
+    area: string,
+    address: string,
+    hospitalName: string,
+    hospitalLocation: string,
+    healthCondition: string,
+    daysAdmitted: number,
+    contact1:string,
+    area1:string,
+    mobileNo1:number,
+    contact2:string,
+    area2:string,
+    mobileNo2:number, 
+    contact3:string,
+    area3:string,
+    mobileNo3:number,
+    outstation:string,
+    frontlineWorker:string,
+    contactWithCovid19:string
+}

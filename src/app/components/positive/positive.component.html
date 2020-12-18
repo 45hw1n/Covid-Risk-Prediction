@@ -1,0 +1,357 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center"><h1>COVID RISK PREDICTION</h1></div>
+</div>
+
+<div class="row content">
+    <div class="col-lg col-sm">
+        <div class="card">
+            <div class="card-body">
+                <form #positive="ngForm" (ngSubmit)="save(positive.value)">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <label for="name"><h5>Name:</h5></label>
+                            <input required [(ngModel)]="positiveDetails['name']" name="name" #name="ngModel"  type="text" class="form-control" id="name" placeholder="Name" required>
+                            <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Name required</div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <label for="age"><h5>Age:</h5></label>
+                            <input required [(ngModel)]="positiveDetails['age']" name="age" #age="ngModel" type="text" class="form-control" id="age" placeholder="Age" required [min]="0"/>
+                            <div class="alert alert-danger" *ngIf="age.touched && !age.valid">
+                                <div *ngIf="age.errors.required">Age required</div>
+                                <div *ngIf="age.errors.min">Age invalid</div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <label for="mobileNo"><h5>Mobile No.:</h5></label>
+                            <input  required [(ngModel)]="positiveDetails['mobileNo']" name="mobileNo" #mobileNo="ngModel" type="text" class="form-control" id="mobileNo" placeholder="Mobile No." required [range]="[1000000000, 10000000000]">
+                            <div class="alert alert-danger" *ngIf="mobileNo.touched && !mobileNo.valid">
+                                <div *ngIf="mobileNo.errors.required">Mobile No. required</div>
+                                <div *ngIf="mobileNo.errors.range">Invalid Mobile No.</div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <label for="area"><h5>Select Your Area:</h5></label>
+                                <select [(ngModel)]="positiveDetails['area']" name="area" #area="ngModel" class="form-control" id="area" required>
+                                    <!----> 
+                                    <option value="" disabled selected>SELECT AREA</option>
+                                    <option>80 Feet Road</option>
+                                    <option>Alagappan Nagar</option>
+                                    <option>Alagar Kovil Road</option>
+                                    <option>Amman Sannathi Street</option>
+                                    <option>Anaiyur</option>
+                                    <option>Andalpuram</option>
+                                    <option>Anna Nagar</option>
+                                    <option>Anuppanadi</option>
+                                    <option>Arappalayam</option>
+                                    <option>Arasaradi</option>
+                                    <option>Avaniyapuram</option>
+                                    <option>Bibikulam</option>
+                                    <option>Bypass Road</option>
+                                    <option>Chinna Chokkikulam</option>
+                                    <option>Chokikulam</option>
+                                    <option>Dhanappa Mudali Street</option>
+                                    <option>East Avani Moola Street</option>
+                                    <option>East Marret Street</option>
+                                    <option>East Masi Street</option>
+                                    <option>East Veli Street</option>
+                                    <option>Ellis Nagar</option>
+                                    <option>Gandhi Nagar</option>
+                                    <option>Gnanavolivupuram</option>
+                                    <option>Goripalayam</option>
+                                    <option>Jaihindpuram</option>
+                                    <option>K.K. Nagar</option>
+                                    <option>K.Pudur</option>
+                                    <option>Kaka Thoppu Street</option>
+                                    <option>Kalavasal</option>
+                                    <option>Kamarajar Salai</option>
+                                    <option>Kansamettu Street</option>
+                                    <option>Kochadai</option>
+                                    <option>Kodikulam</option>
+                                    <option>Koodal Nagar</option>
+                                    <option>Krishnapuram Colony</option>
+                                    <option>Krishnarayar Tank Road</option>
+                                    <option>Lakshmipuram</option>
+                                    <option>Mahaboopalayam</option>
+                                    <option>Manjanakara Street</option>
+                                    <option>Mattuthavani</option>
+                                    <option>Melakkal Road</option>
+                                    <option>Melur Road</option>
+                                    <option>Munichalai Road</option>
+                                    <option>Naicker New Street</option>
+                                    <option>Narayanapuram</option>
+                                    <option>Narimedu</option>
+                                    <option>Nethaji Road</option>
+                                    <option>New Mahalipatti Road</option>
+                                    <option>New Natham Road</option>
+                                    <option>North Chitrai Street</option>
+                                    <option>North Masi Street</option>
+                                    <option>North Veli Street</option>
+                                    <option>Othakadai</option>
+                                    <option>Palace Road</option>
+                                    <option>Palanganatham</option>
+                                    <option>Pasumalai</option>
+                                    <option>Ponmeni</option>
+                                    <option>PT Rajan Road</option>
+                                    <option>S S Colony</option>
+                                    <option>Sathya Sai Nagar</option>
+                                    <option>Sellur</option>
+                                    <option>Sellur Road</option>
+                                    <option>Shenoy Nagar</option>
+                                    <option>Simmakkal</option>
+                                    <option>South Avani Moola Street</option>
+                                    <option>South Gate</option>
+                                    <option>South Marret Street</option>
+                                    <option>South Masi Street</option>
+                                    <option>South Veli Street</option>
+                                    <option>SS Colony</option>
+                                    <option>Subramaniapuram</option>
+                                    <option>Surya Nagar</option>
+                                    <option>Tallakulam</option>
+                                    <option>Tamil Sangam Road</option>
+                                    <option>Theni Main Road</option>
+                                    <option>Town Hall Road</option>
+                                    <option>TPK Road</option>
+                                    <option>TVS Nagar</option>
+                                    <option>Uthangudi</option>
+                                    <option>Vakkil New Street</option>
+                                    <option>Velmurugan Nagar</option>
+                                    <option>Vengalakadai Street</option>
+                                    <option>Vilangudi</option>
+                                    <option>Villapuram</option>
+                                    <option>Virattipathu</option>
+                                    <option>Visalakshipuram Main Road</option>
+                                    <option>Vishwanathapuram</option>
+                                    <option>West Avani Moola Street</option>
+                                    <option>West Masi Street</option>
+                                    <option>West Perumal Maistry Street</option>
+                                    <option>West Tower Street</option>
+                                    <option>West Vadampokki Street</option>
+                                    <option>West Veli Street</option>
+                                </select>
+                                <div class="alert alert-danger" *ngIf="area.touched && !area.valid">Select Area</div>
+                                </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <label for="address"><h5>Address:</h5></label>
+                                <input required [(ngModel)]="positiveDetails['address']" name="address" #address="ngModel" type="text" class="form-control" id="address" placeholder="Address" required>
+                                <div class="alert alert-danger" *ngIf="address.touched && !address.valid">Address required</div>
+                                </div>
+                        </div>
+                    </div>
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col"><h4 class="text-center">REPORT YOUR CONDITION</h4></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <label><h5>Hospital Admitted:</h5></label>
+                                <select  [(ngModel)]="positiveDetails['hospitalName']" name="hospitalName" #hospitalName="ngModel" class="form-control" id="hospitalName" required>
+                                    <option value="" disabled selected >Select</option>
+                                    <option>Appolo Hospital</option>
+                                    <option>Rajaji Govt. Hospital</option>
+                                    <option>Meenakshi Mission Hospital</option>
+                                    <option>Velammal Hospital</option>
+                                </select>
+                                <div class="alert alert-danger" *ngIf="hospitalName.touched && !hospitalName.valid">Select Hospital</div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <label><h5>Hospital Location:</h5></label>
+                                <select  [(ngModel)]="positiveDetails['hospitalLocation']" name="hospitalLocation" hospitalLocation="hospitalLocation" #hospitalLocation="ngModel" class="form-control" id="hospitalLocation" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option>KK Nagar</option>
+                                    <option>GH Road</option>
+                                    <option>Melur Main Road</option>
+                                    <option>Chinthamani</option>
+                                </select>
+                                <div class="alert alert-danger" *ngIf="hospitalLocation.touched && !hospitalLocation.valid">Select Hospital Location</div>
+                            </div>
+                        </div>
+                    </div>
+<!-- NEW CONTENTS -->
+<div class="row">
+    <div class="col-sm">
+        <div class="form-group">
+            <div class="form-group">
+                <label><h5>Health Condition:</h5></label>
+                <select [(ngModel)]="positiveDetails['healthCondition']" name="healthCondition" healthCondition="healthCondition" #healthCondition="ngModel" class="form-control" id="healthCondition" required>
+                    <option value="" disabled selected>SELECT CONDITION</option>
+                    <option>Asymptomatic</option>
+                    <option>Recovering</option>
+                    <option>Stable</option>
+                    <option>Deteriorating</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="healthCondition.touched && !healthCondition.valid">Select Health Condition</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-group">
+        <label for="No. of days Admitted"><h5>No. of Days Admitted:</h5></label>
+        <input required [(ngModel)]="positiveDetails['daysAdmitted']" name="daysAdmitted" #daysAdmitted="ngModel" type="text" class="form-control" id="daysAdmitted" placeholder="Days Admitted">
+        <div class="alert alert-danger" *ngIf="daysAdmitted.touched && !daysAdmitted.valid">Enter no. of days Admitted</div>
+    </div>
+    </div>
+</div>
+<hr>
+
+<!-- TABLE -->
+<div class="row">
+    <div class="col"><h4 class="text-left">DETAILS OF PERSON YOU CAME IN CONTACT :</h4>
+    <p class="text-warning text-left">Note: Do not mention family members*</p></div>
+</div>
+
+<div class="row">
+    <div class="col-sm">
+        <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Area</th>
+        <th scope="col">Phone No.</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>
+            <div class="form-group">
+                <input required [(ngModel)]="positiveDetails['contact1']" name="contact1" #contact1=ngModel type="text" class="form-control" id="contact1" placeholder="Enter Name"  required>
+                <div class="alert alert-danger" *ngIf="contact1.touched && !contact1.valid">Name required</div>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <input required [(ngModel)]="positiveDetails['area1']" name="area1" #area1=ngModel type="text" class="form-control" id="area1" placeholder="Enter Area"  required>
+                <div class="alert alert-danger" *ngIf="area1.touched && !area1.valid">Area required</div>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <input required [(ngModel)]="positiveDetails['mobileNo1']" name="mobileNo1" #mobileNo1=ngModel type="text" class="form-control" id="mobileNo1" placeholder="Enter Mobile No."  [range]="[1000000000, 10000000000]">
+                <div class="alert alert-danger" *ngIf="mobileNo1.touched && !mobileNo1.valid">
+                    <div *ngIf="mobileNo1.errors.required">Mobile No. required</div>
+                    <div *ngIf="mobileNo1.errors.range">Invalid Mobile No.</div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>
+        <div class="form-group">
+            <input required [(ngModel)]="positiveDetails['contact2']" name="contact2" #contact2=ngModel type="text" class="form-control" id="contact1" placeholder="Enter Name"  required>
+            <div class="alert alert-danger" *ngIf="contact2.touched && !contact2.valid">Name required</div>
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+            <input required [(ngModel)]="positiveDetails['area2']" name="area2" #area2=ngModel type="text" class="form-control" id="area1" placeholder="Enter Area"  required>
+            <div class="alert alert-danger" *ngIf="area2.touched && !area2.valid">Area required</div>
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+            <input required [(ngModel)]="positiveDetails['mobileNo2']" name="mobileNo2" #mobileNo2=ngModel type="text" class="form-control" id="mobileNo1" placeholder="Enter Mobile No."  [range]="[1000000000, 10000000000]">
+            <div class="alert alert-danger" *ngIf="mobileNo2.touched && !mobileNo2.valid">
+                <div *ngIf="mobileNo2.errors.required">Mobile No. required</div>
+                <div *ngIf="mobileNo2.errors.range">Invalid Mobile No.</div>
+            </div>
+        </div>
+    </td>
+    </tr>
+    <tr>
+    <th scope="row">3</th>
+    <td>
+        <div class="form-group">
+            <input required [(ngModel)]="positiveDetails['contact3']" name="contact3" #contact3=ngModel type="text" class="form-control" id="contact3" placeholder="Enter Name"  required>
+            <div class="alert alert-danger" *ngIf="contact3.touched && !contact3.valid">Name required</div>
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+            <input required [(ngModel)]="positiveDetails['area3']" name="area3" #area3=ngModel type="text" class="form-control" id="area3" placeholder="Enter Area"  required>
+            <div class="alert alert-danger" *ngIf="area3.touched && !area3.valid">Area required</div>
+        </div>
+    </td>
+    <td>
+        <div class="form-group">
+            <input required [(ngModel)]="positiveDetails['mobileNo3']" name="mobileNo3" #mobileNo3=ngModel type="text" class="form-control" id="mobileNo3" placeholder="Enter Mobile No." [range]="[1000000000, 10000000000]">
+            <div class="alert alert-danger" *ngIf="mobileNo3.touched && !mobileNo3.valid">
+                <div *ngIf="mobileNo3.errors.required">Mobile No. required</div>
+                <div *ngIf="mobileNo3.errors.range">Invalid Mobile No.</div>
+            </div>
+        </div>
+    </td>
+    </tr>
+    </tbody>
+</table>
+    </div>
+</div>
+
+<!-- END OF TABLE -->
+<div class="row">
+    <div class="col-sm">
+        <h4 class="mb-3">Involved in following activities:</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm">
+        <h5>Gone Outstation for past 28 days:</h5>
+        <select [(ngModel)]="positiveDetails['outstation']" name="outstation" outstation="outstation" #outstation="ngModel" class="form-control" id="outstation" required >
+            <option value="" disabled selected>SELECT</option>
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+    </div>
+    <div class="col-sm">
+        <h5 style="font-size:19px">Contact With Covid-19 +ve Person</h5>
+                <select [(ngModel)]="positiveDetails['contactWithCovid19']" name="contactWithCovid19" contactWithCovid19="contactWithCovid19" #contactWithCovid19="ngModel" class="form-control" required >
+                    <option value="" disabled selected>SELECT</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+    </div>
+    <div class="col-sm">
+        <h5>Frontline Worker:</h5>
+                <select [(ngModel)]="positiveDetails['frontlineWorker']" name="frontlineWorker" frontlineWorker="frontlineWorker" #frontlineWorker="ngModel" class="form-control" id="worker"  required>
+                    <option value="" disabled selected>SELECT</option>
+                    <option>Yes</option>
+                     <option>No</option>
+                </select>
+    </div>
+</div>
+
+<!-- END OF NEW CONTENTS -->
+                        <div class="row">
+                            <div class="col-sm">
+                                <button class="btn btn-primary float-right" [disabled]="!positive.valid">Submit</button>
+                            </div>
+                        </div>
+                </form>
+                
+            
+            </div>
+        </div>
+    </div>
+</div>
+</div>

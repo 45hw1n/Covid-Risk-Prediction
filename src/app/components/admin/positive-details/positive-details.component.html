@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<h1 class="text-center">Admin Positive Details</h1>
+<div class="container" *ngIf="positive | async as positive">
+    <div class="card col-8 mx-auto text-center">
+        
+            <h2 class="p-2">General Details</h2>
+            <h5 class="text-left">Name :  {{positive.name}}</h5>
+            <h5 class="text-left">Age : {{positive.age}}</h5>
+            <h5 class="text-left">Phone No: {{positive.mobileNo}}</h5>
+            <h5 class="text-left">Area :{{positive.area}}</h5>
+            <h5 class="text-left">Address :{{positive.address}}</h5>
+            <h2 class="p-2">Patient Details</h2>
+            <h5 class="text-left">Hospital Admitted :{{positive. hospitalName}}</h5>
+            <h5 class="text-left">Hospital Location :{{positive.hospitalLocation}}</h5>
+            <h5 class="text-left">Days Admitted :{{positive.daysAdmitted}}</h5>
+            <h5 class="text-left">Health Condition :{{positive.healthCondition}}</h5>
+            <h2 class="p-2">Activities</h2>
+            <h5 class="text-left">Out Station :{{positive.outstation}}</h5>
+            <h5 class="text-left">Contact with covid 19 person :{{positive.contactWithCovid19}}</h5>
+            <h5 class="text-left">Frontline Worker :{{positive.frontlineWorker}}</h5>
+            <h2 class="p-2">Contact Details</h2>
+
+                <table class="table table-hover table-light">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Mobille No.</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{positive.contact1}}</td>
+                        <td>{{positive.area1}}</td>
+                        <td>{{positive.mobileNo1}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>{{positive.contact2}}</td>
+                        <td>{{positive.area2}}</td>
+                        <td>{{positive.mobileNo2}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>{{positive.contact3}}</td>
+                        <td>{{positive.area3}}</td>
+                        <td>{{positive.mobileNo3}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+nav{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.btn-nav{
+    margin: 2px;
+    padding: 5px;
+}
+.btn-primary{
+    margin: 25px;
+}
+h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+@media only screen and (max-width: 576px){
+.navbar-brand{
+    font-size: 13px;
+}
+.btn-nav{
+    font-size:12px;
+}
+a{
+    padding:2px;
+    font-size:12px;
+}
+// img{
+//     width:0px;
+//     height: 0px;
+//     margin:0px;
+// }
+}

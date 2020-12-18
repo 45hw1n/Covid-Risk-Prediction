@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+
+<h1 class="text-center">Admin Negative Details</h1>
+<div class="container " *ngIf="negative | async as negative" >
+    <div class="card col-8 mx-auto text-center">
+        <h2 class="p-2">General Details</h2>
+            <h5 class="text-center">Name: {{negative.name}} </h5>
+            <h5 class="text-center">Age: {{negative.age}} </h5>
+            <h5 class="text-center">Area: {{negative.area}}</h5>
+            <h5 class="text-center">Address: {{negative.address}}</h5>
+            <h5 class="text-center">Phone No:{{negative.mobileNo}}</h5>
+            <h5 class="text-center">Risk: {{negative.risk}}</h5>                
+    </div>
+</div>

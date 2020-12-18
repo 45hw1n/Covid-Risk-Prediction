@@ -1,0 +1,288 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center"><h1>COVID RISK PREDICTION</h1></div>
+</div>
+
+<div class="row content">
+    <div class="col-lg col-sm">
+        <div class="card">
+            <div class="card-body">
+                <form #negative="ngForm" (ngSubmit)="submit()">
+<!-- details -->
+<div class="row">
+    <div class="col-sm">
+        <div class="form-group">
+        <label for="name"><h5>Name:</h5></label>
+        <input required [(ngModel)]="negativeDetails.name" name="name" #name="ngModel"  type="text" class="form-control" id="name" placeholder="Name" required>
+        <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Name required</div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-group">
+        <label for="age"><h5>Age:</h5></label>
+        <input required [(ngModel)]="negativeDetails.age" name="age" #age="ngModel" type="text" class="form-control" id="age" placeholder="Age" required [min]="0"/>
+        <div class="alert alert-danger" *ngIf="age.touched && !age.valid">
+            <div *ngIf="age.errors.required">Age required</div>
+            <div *ngIf="age.errors.min">Age invalid</div>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-group">
+        <label for="mobileNo"><h5>Mobile No.:</h5></label>
+        <input  required [(ngModel)]="negativeDetails.mobileNo" name="mobileNo" #mobileNo="ngModel" type="text" class="form-control" id="mobileNo" placeholder="Mobile No." required [range]="[1000000000, 10000000000]">
+        <div class="alert alert-danger" *ngIf="mobileNo.touched && !mobileNo.valid">
+            <div *ngIf="mobileNo.errors.required">Mobile No. required</div>
+            <div *ngIf="mobileNo.errors.range">Invalid Mobile No.</div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm">
+        <div class="form-group">
+            <label for="area"><h5>Select Your Area:</h5></label>
+            <select [(ngModel)]="negativeDetails.area" name="area" #area="ngModel" class="form-control" id="area" required>
+                <!----> 
+                <option value="" disabled selected>SELECT AREA</option>
+                <option>80 Feet Road</option>
+                <option>Alagappan Nagar</option>
+                <option>Alagar Kovil Road</option>
+                <option>Amman Sannathi Street</option>
+                <option>Anaiyur</option>
+                <option>Andalpuram</option>
+                <option>Anna Nagar</option>
+                <option>Anuppanadi</option>
+                <option>Arappalayam</option>
+                <option>Arasaradi</option>
+                <option>Avaniyapuram</option>
+                <option>Bibikulam</option>
+                <option>Bypass Road</option>
+                <option>Chinna Chokkikulam</option>
+                <option>Chokikulam</option>
+                <option>Dhanappa Mudali Street</option>
+                <option>East Avani Moola Street</option>
+                <option>East Marret Street</option>
+                <option>East Masi Street</option>
+                <option>East Veli Street</option>
+                <option>Ellis Nagar</option>
+                <option>Gandhi Nagar</option>
+                <option>Gnanavolivupuram</option>
+                <option>Goripalayam</option>
+                <option>Jaihindpuram</option>
+                <option>K.K. Nagar</option>
+                <option>K.Pudur</option>
+                <option>Kaka Thoppu Street</option>
+                <option>Kalavasal</option>
+                <option>Kamarajar Salai</option>
+                <option>Kansamettu Street</option>
+                <option>Kochadai</option>
+                <option>Kodikulam</option>
+                <option>Koodal Nagar</option>
+                <option>Krishnapuram Colony</option>
+                <option>Krishnarayar Tank Road</option>
+                <option>Lakshmipuram</option>
+                <option>Mahaboopalayam</option>
+                <option>Manjanakara Street</option>
+                <option>Mattuthavani</option>
+                <option>Melakkal Road</option>
+                <option>Melur Road</option>
+                <option>Munichalai Road</option>
+                <option>Naicker New Street</option>
+                <option>Narayanapuram</option>
+                <option>Narimedu</option>
+                <option>Nethaji Road</option>
+                <option>New Mahalipatti Road</option>
+                <option>New Natham Road</option>
+                <option>North Chitrai Street</option>
+                <option>North Masi Street</option>
+                <option>North Veli Street</option>
+                <option>Othakadai</option>
+                <option>Palace Road</option>
+                <option>Palanganatham</option>
+                <option>Pasumalai</option>
+                <option>Ponmeni</option>
+                <option>PT Rajan Road</option>
+                <option>S S Colony</option>
+                <option>Sathya Sai Nagar</option>
+                <option>Sellur</option>
+                <option>Sellur Road</option>
+                <option>Shenoy Nagar</option>
+                <option>Simmakkal</option>
+                <option>South Avani Moola Street</option>
+                <option>South Gate</option>
+                <option>South Marret Street</option>
+                <option>South Masi Street</option>
+                <option>South Veli Street</option>
+                <option>SS Colony</option>
+                <option>Subramaniapuram</option>
+                <option>Surya Nagar</option>
+                <option>Tallakulam</option>
+                <option>Tamil Sangam Road</option>
+                <option>Theni Main Road</option>
+                <option>Town Hall Road</option>
+                <option>TPK Road</option>
+                <option>TVS Nagar</option>
+                <option>Uthangudi</option>
+                <option>Vakkil New Street</option>
+                <option>Velmurugan Nagar</option>
+                <option>Vengalakadai Street</option>
+                <option>Vilangudi</option>
+                <option>Villapuram</option>
+                <option>Virattipathu</option>
+                <option>Visalakshipuram Main Road</option>
+                <option>Vishwanathapuram</option>
+                <option>West Avani Moola Street</option>
+                <option>West Masi Street</option>
+                <option>West Perumal Maistry Street</option>
+                <option>West Tower Street</option>
+                <option>West Vadampokki Street</option>
+                <option>West Veli Street</option>
+            </select>
+            <div class="alert alert-danger" *ngIf="area.touched && !area.valid">Select Area</div>
+            </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-group">
+            <label for="address"><h5>Address:</h5></label>
+            <input required [(ngModel)]="negativeDetails.address" name="address" #address="ngModel" type="text" class="form-control" id="address" placeholder="Address" required>
+            <div class="alert alert-danger" *ngIf="address.touched && !address.valid">Address required</div>
+            </div>
+    </div>
+</div>
+<hr>
+<!-- end of details -->
+
+<!-- Start of symptoms -->
+<div class="row">
+    <div class="col-sm">
+        <h4>Do You Have Following Symptoms:</h4>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.cold"  name="cold" #cold="ngModel" class="cold" type="checkbox" id="cold" value="1">
+            <label class="form-check-label" for="negativeValuecold">Cold</label>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.cough"   name="cough" #cough="ngModel" class="cough" type="checkbox" id="cough" value="1">
+            <label class="form-check-label" for="inlineCheckbox1">Cough</label>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.fever"  name="fever" #fever="ngModel" class="fever" type="checkbox" id="fever" value="2">
+            <label class="form-check-label" for="inlineCheckbox1">Fever</label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.breathlessness"  name="breathlessness" #breathlessness="ngModel" class="breathlessness" type="checkbox" id="breathlessness" value="5">
+            <label class="form-check-label" for="inlineCheckbox1">Breathlessness</label>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.lossOfSenses"  name="lossOfSenses" #lossOfsenses="ngModel" class="loss of senses" type="checkbox" id="lossOfSenses" value="4">
+            <label class="form-check-label" for="inlineCheckbox1">Loss of senses</label>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.soreThroat"  name="soreThroat" #soreThroat="ngModel" class="sore throat" type="checkbox" id="soreThroat" value="2">
+            <label class="form-check-label" for="inlineCheckbox1">Sore throat</label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.none"   name="none" #none="ngModel" class="none" type="checkbox" id="none" value="0">
+            <label class="form-check-label" for="inlineCheckbox1">None</label>
+        </div>
+    </div>
+</div><hr>
+<!-- end of symptoms -->
+
+<!-- start of disorder -->
+<div class="row">
+    <div class="col-sm">
+        <h4>Do You have Following Disorder:</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.diabeties" name="diabeties" #diabeties="ngModel" class="diabeties" type="checkbox" id="diabeties" value="1">
+            <label class="form-check-label" for="inlineCheckbox1">Diabeties</label>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.lungDisorder" name="lungDisorder" #lungDisorder="ngModel" class="lung disorder" type="checkbox" id="lung disorder" value="1">
+            <label class="form-check-label" for="inlineCheckbox1">Lung Disorder</label>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.heartDisorder" name="heartDisorder" #heartDisorder="ngModel" class="heart disorder" type="checkbox" id="heart disorder" value="1">
+            <label class="form-check-label" for="inlineCheckbox1">Heart Disorder</label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.kidneyDisorder" name="kidneyDisorder" #kidneyDisorder="ngModel" class="kidney disorder" type="checkbox" id="kidney disorder" value="1">
+            <label class="form-check-label" for="inlineCheckbox1">Kidney Disorder</label>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.hypertension" name="hypertension" #hypertension="ngModel" class="hypertension" type="checkbox" id="hypertension" value="1">
+            <label class="form-check-label" for="inlineCheckbox1">Hypertension</label>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-check form-check-inline">
+            <input [(ngModel)]="negativeValue.noDisorder" name="noDisorder" #noDisorder="ngModel" class="no disorder" type="checkbox" id="no disorder" value="0">
+            <label class="form-check-label" for="inlineCheckbox1">None</label>
+        </div>
+    </div>
+</div><hr>
+<!-- end of disorder -->
+<div class="row">
+    <div class="col">
+        <div class="text-center">
+            
+                <div *ngIf="value===0 "><h3 class="text-success">No Risk</h3></div>
+                <div *ngIf="value>0 && value <= 3 "><h3>Low Risk</h3></div>
+                <div *ngIf="value>3 && value<=6 "><h3 class="text-warning">Medium Risk</h3></div>
+                <div *ngIf="value>6" ><h3 class="text-danger">High Risk</h3></div>
+            
+        </div>
+    </div>
+</div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <button class="btn btn-primary float-right" [disabled]="!negative.valid" >Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

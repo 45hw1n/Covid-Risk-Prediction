@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col text-center title"><h1>COVID RISK PREDICTION</h1></div>
+    </div>
+
+    <div class="row content">
+        <div class="col-lg-6 col-sm">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3><strong>Thank You for Registering</strong></h3><br>
+
+                    <div class="form-group" *ngIf="authService.userData as user">
+                        <h5 class="text-center">We have sent a confirmation email to <strong><u>{{user.email}}</u></strong>.</h5>
+                        <h5 class="text-center">Please check your email and click on the link to verify your email address.</h5><br>
+
+                        <div class="form-group">
+                            <button type="button" class="btn btn-success" (click)="authService.SendVerificationMail()">
+                                <i class="fas fa-redo-alt"></i> Resend Verification Email
+                            </button>
+                        </div>
+                        <div class="redirectToLogin">
+                            <h5><span>Go back to    ?  <span class="redirect" routerLink="/sign-in" style="cursor: pointer;"> <u>Sign in</u></span></span></h5>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

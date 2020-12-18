@@ -1,0 +1,20 @@
+export interface negativeDetails {
+    name: string ,
+    age: number,
+    mobileNo: number,
+    area: string,
+    address: string,
+    cold:boolean,
+    cough: boolean,
+    breathlessness: boolean,
+    fever: boolean,
+    soreThroat: boolean,
+    lossOfSenses: boolean,
+    none:boolean,
+    diabeties: boolean,
+    lungDisorder: boolean,
+    heartDisorder: boolean,
+    kidneyDisorder: boolean,
+    hypertension: boolean,
+    noDisorder: boolean
+}
