@@ -13,7 +13,6 @@ import { take } from 'rxjs/operators';
 })
 export class HomeComponent {
   home: home[];
-  id;
   constructor(private homeService: HomeService ,private router: Router , public authService: AuthService, 
     public ngZone: NgZone,  private route: ActivatedRoute,  private db: AngularFireDatabase) { 
       this.home = [{
@@ -24,24 +23,16 @@ export class HomeComponent {
         address: 'xxx',
         test: 'xxx',
       }]
-      this.id = this.route.snapshot.paramMap.get('id');
-      if (this.id) this.homeService.get(this.id).valueChanges().pipe(take(1)).subscribe(this.id);
     }
-  
+
 save(home){
   console.log(home)
-  console.log(this.id)
-  if(this.id){
-    this.homeService.update(home, this.id)
+  this.homeService.create(home)
+  if(home.test == 'positive'){
+    this.router.navigateByUrl('positive'); 
   }else{
-    this.homeService.create(home)
+    this.router.navigateByUrl('negative');
   }
-  
-  // if(home.test == 'positive'){
-  //   this.router.navigateByUrl('positive'); 
-  // }else{
-  //   this.router.navigateByUrl('negative');
-  // }
   }
 }
 
